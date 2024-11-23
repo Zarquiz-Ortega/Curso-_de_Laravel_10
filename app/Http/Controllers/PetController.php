@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCurso;
 use App\Models\Pet;
 use Illuminate\Http\Request;
 use Ramsey\Uuid\Type\Integer;
@@ -30,24 +31,18 @@ class PetController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreCurso $request)
     {
 
-        $request->validate([
-            'name' => ['required', 'min:3'],
-            'color' => 'required',
-            'age' => 'required',
-            'address' => 'required',
-        ]);
+        // $pet = new Pet();
+        // $pet->name = $request->name;
+        // $pet->color = $request->color;
+        // $pet->age = $request->age;
+        // $pet->address = $request->address;
 
+        // $pet->save();
 
-        $pet = new Pet();
-        $pet->name = $request->name;
-        $pet->color = $request->color;
-        $pet->age = $request->age;
-        $pet->address = $request->address;
-
-        $pet->save();
+        $pet = Pet::created([$request->all()]);
 
         return redirect()->route('pets.show', $pet);
     }

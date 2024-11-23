@@ -16,7 +16,6 @@
         @error('name')
             <br>
             <span>*{{ $message }}</span>
-            <br>
         @enderror
         <br>
         <label>
@@ -27,7 +26,6 @@
         @error('color')
             <br>
             <span>*{{ $message }}</span>
-            <br>
         @enderror
         <br>
         <label>
@@ -38,7 +36,6 @@
         @error('age')
             <br>
             <span>*{{ $message }}</span>
-            <br>
         @enderror
         <br>
         <label>
@@ -49,9 +46,8 @@
         @error('address')
             <br>
             <span>*{{ $message }}</span>
-            <br>
         @enderror
-        <br><br>
+        <br>
         <button type="submit">Enviar</button>
     </form>
 

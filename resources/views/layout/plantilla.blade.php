@@ -11,7 +11,9 @@
 </head>
 
 <body>
-    @yield('content')
+    <div class="container m-auto p-10">
+        @yield('content')   
+    </div>
 </body>
 
 </html>

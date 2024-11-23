@@ -4,35 +4,47 @@
 
 @section('content')
     <h1 class="text-center text-2xl">Editar reguistro</h1>
-
-    <form action="{{route('pets.update', $pet)}}" method="POST" >
+    <a href="{{route('pets.show', $pet->id)}}">Volver atras</a>
+    <hr><br>
+    <form action="{{ route('pets.update', $pet) }}" method="POST">
         @method('PUT')
         @csrf
         <label>
-            Name: <hr>
-            <input type="text" name="name" value="{{$pet->name}}" >
+            Name: <br>
+            <input type="text" name="name" value="{{ old('name', $pet->name) }}">
         </label>
         @error('name')
+            <br>
+            <span>*{{ $message }}</span>
+        @enderror
         <br>
-        <span>*{{ $message }}</span>
+        <label>
+            Color: <br>
+            <input type="text" name="color" value="{{ old('color', $pet->color) }}">
+        </label>
+        @error('color')
+            <br>
+            <span>*{{ $message }}</span>
+        @enderror
         <br>
-    @enderror
-        <hr>
         <label>
-            Color: <hr>
-            <input type="text" name="color" value="{{$pet->color}}" >
+            Age: <br>
+            <input type="number" name="age" value="{{ old('age', $pet->age) }}">
         </label>
-        <hr>
+        @error('age')
+            <br>
+            <span>*{{ $message }}</span>
+        @enderror
+        <br>
         <label>
-            Age: <hr>
-            <input type="number" name="age" value="{{$pet->age}}" >
+            Address: <br>
+            <textarea name="address" rows="5">{{ old('address', $pet->address) }}</textarea>
         </label>
-        <hr>
-        <label>
-            Address: <hr>
-            <textarea name="address" rows="5">{{$pet->address}}</textarea>
-        </label>
-        <hr>
+        @error('address')
+            <br>
+            <span>*{{ $message }}</span>
+        @enderror
+        <br>
         <button type="submit">Actualizar</button>
     </form>
 
