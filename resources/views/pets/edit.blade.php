@@ -12,6 +12,11 @@
             Name: <hr>
             <input type="text" name="name" value="{{$pet->name}}" >
         </label>
+        @error('name')
+        <br>
+        <span>*{{ $message }}</span>
+        <br>
+    @enderror
         <hr>
         <label>
             Color: <hr>

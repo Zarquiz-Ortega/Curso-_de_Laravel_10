@@ -10,7 +10,7 @@
         @csrf
         <label>
             Name:
-            <hr>
+            <br>
             <input type="text" name="name" value="{{ old('name') }}">
         </label>
         @error('name')
@@ -18,10 +18,10 @@
             <span>*{{ $message }}</span>
             <br>
         @enderror
-        <hr>
+        <br>
         <label>
             Color:
-            <hr>
+            <br>
             <input type="text" name="color" value="{{ old('color') }}">
         </label>
         @error('color')
@@ -29,10 +29,10 @@
             <span>*{{ $message }}</span>
             <br>
         @enderror
-        <hr>
+        <br>
         <label>
             Age:
-            <hr>
+            <br>
             <input type="number" name="age" value="{{ old('age') }}">
         </label>
         @error('age')
@@ -40,10 +40,10 @@
             <span>*{{ $message }}</span>
             <br>
         @enderror
-        <hr>
+        <br>
         <label>
             Address:
-            <hr>
+            <br>
             <textarea name="address" rows="5"> {{ old('address') }} </textarea>
         </label>
         @error('address')
@@ -51,7 +51,7 @@
             <span>*{{ $message }}</span>
             <br>
         @enderror
-        <hr>
+        <br><br>
         <button type="submit">Enviar</button>
     </form>
 

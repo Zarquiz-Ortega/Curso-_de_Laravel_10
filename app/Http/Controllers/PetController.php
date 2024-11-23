@@ -34,10 +34,10 @@ class PetController extends Controller
     {
 
         $request->validate([
-            'name'=>'required',
-            'color'=>'required',
-            'age'=>'required',
-            'address'=>'required',
+            'name' => ['required', 'min:3'],
+            'color' => 'required',
+            'age' => 'required',
+            'address' => 'required',
         ]);
 
 
@@ -73,6 +73,14 @@ class PetController extends Controller
      */
     public function update(Request $request, Pet $pet)
     {
+
+        $request->validate([
+            'name' => ['required', 'min:3'],
+            'color' => 'required',
+            'age' => 'required',
+            'address' => 'required',
+        ]);
+
         $pet->name = $request->name;
         $pet->color = $request->color;
         $pet->age = $request->age;
@@ -81,7 +89,6 @@ class PetController extends Controller
         $pet->save();
 
         return view('pets.show', compact('pet'));
-        
     }
 
     /**
