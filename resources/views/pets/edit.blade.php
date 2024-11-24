@@ -38,7 +38,7 @@
         <br>
         <label>
             Address: <br>
-            <textarea name="address" rows="5">{{ old('address', $pet->address) }}</textarea>
+            <textarea name="address" rows="5">{{old('address', $pet->address)}}</textarea>
         </label>
         @error('address')
             <br>

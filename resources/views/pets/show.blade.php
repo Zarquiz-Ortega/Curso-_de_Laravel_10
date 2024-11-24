@@ -13,6 +13,13 @@
             <td>
                 <a class="text-center" href="{{route('pets.edit', $pet)}}"> Editar reguistro </a>
             </td>
+            <td>
+                <form action="{{route('pets.destroy', $pet)}}" method="POST" >
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">Eliminar</button>
+                </form>
+            </td>
         </thead>
     </table>
     <hr><br>

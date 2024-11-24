@@ -9,11 +9,12 @@ class Pet extends Model
 {
     use HasFactory;
 
-    protected $filable = [
+    protected $fillable = [
         'name',
         'color',
         'age',
         'address',
     ];
 
+    protected $guarded = [/*Campos protejido */];
 }

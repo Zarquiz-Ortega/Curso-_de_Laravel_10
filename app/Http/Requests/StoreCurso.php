@@ -22,10 +22,10 @@ class StoreCurso extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'min:3'],
+            'name' => ['required', 'string' , 'min:3' ],
             'color' => 'required',
             'age' => 'required',
-            'address' => 'required',
+            'address' => 'required|string',
         ];
     }
 

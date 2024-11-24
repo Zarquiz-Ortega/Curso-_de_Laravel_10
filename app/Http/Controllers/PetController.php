@@ -34,15 +34,7 @@ class PetController extends Controller
     public function store(StoreCurso $request)
     {
 
-        // $pet = new Pet();
-        // $pet->name = $request->name;
-        // $pet->color = $request->color;
-        // $pet->age = $request->age;
-        // $pet->address = $request->address;
-
-        // $pet->save();
-
-        $pet = Pet::created([$request->all()]);
+        $pet = Pet::create($request->all());
 
         return redirect()->route('pets.show', $pet);
     }
@@ -76,12 +68,7 @@ class PetController extends Controller
             'address' => 'required',
         ]);
 
-        $pet->name = $request->name;
-        $pet->color = $request->color;
-        $pet->age = $request->age;
-        $pet->address = $request->address;
-
-        $pet->save();
+        $pet->update($request->all());
 
         return view('pets.show', compact('pet'));
     }
@@ -89,8 +76,9 @@ class PetController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(Pet $pet)
     {
-        //
+        $pet->delete();
+        return redirect()->route('pets.index',);
     }
 }
